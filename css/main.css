@@ -275,14 +275,7 @@ body {
     font-size: 16px;
 }
 
-.result-actions {
-    display: flex;
-    gap: 16px;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-/* 버튼 스타일 */
+/* 기본 버튼 스타일 (오류 페이지용) */
 .btn {
     padding: 12px 24px;
     border: none;
@@ -307,17 +300,6 @@ body {
 .btn.primary:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 16px rgba(102, 126, 234, 0.3);
-}
-
-.btn.secondary {
-    background: rgba(74, 85, 104, 0.1);
-    color: #4a5568;
-    border: 2px solid rgba(74, 85, 104, 0.2);
-}
-
-.btn.secondary:hover {
-    background: rgba(74, 85, 104, 0.2);
-    transform: translateY(-1px);
 }
 
 /* 오류 페이지 */
@@ -440,37 +422,13 @@ body {
     .institute-name span {
         font-size: 20px;
     }
-    
-    .result-actions {
-        flex-direction: column;
-    }
-    
-    .btn {
-        width: 100%;
-    }
 }
 
-/* 인쇄 스타일 */
-@media print {
-    body {
-        background: white !important;
-    }
-    
-    .result-container {
-        background: white !important;
-    }
-    
-    .result-card {
-        background: white !important;
-        box-shadow: none !important;
-        border: 2px solid #e2e8f0 !important;
-    }
-    
-    .result-actions {
-        display: none !important;
-    }
-    
-    .success-icon {
-        background: #48bb78 !important;
+/* 터치 디바이스 개선 */
+@media (hover: none) and (pointer: coarse) {
+    .login-btn.primary:hover,
+    .btn.primary:hover {
+        transform: none;
+        box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
     }
 }
