@@ -65,22 +65,10 @@ const AnnouncementApp = {
             });
         }
 
-        // 뒤로 가기 버튼
-        const backBtn = document.getElementById('backBtn');
-        if (backBtn) {
-            backBtn.addEventListener('click', () => this.goBack());
-        }
-
         // 다시 시도하기 버튼
         const retryBtn = document.getElementById('retryBtn');
         if (retryBtn) {
             retryBtn.addEventListener('click', () => this.goBack());
-        }
-
-        // 인쇄하기 버튼
-        const printBtn = document.getElementById('printBtn');
-        if (printBtn) {
-            printBtn.addEventListener('click', () => window.print());
         }
     },
 
