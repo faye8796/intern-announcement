@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>세종학당 문화인턴 배정 공지</title>
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/main.css">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <!-- Supabase JavaScript Client -->
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <!-- Main App Container -->
+    <div id="app">
+        <!-- 로그인 페이지 -->
+        <div id="loginPage" class="page active">
+            <div class="login-container">
+                <div class="login-card">
+                    <div class="login-header">
+                        <div class="logo">
+                            <i data-lucide="graduation-cap"></i>
+                        </div>
+                        <h1>세종학당 문화인턴 배정 공지</h1>
+                        <p>Cultural Intern Assignment Announcement</p>
+                    </div>
+
+                    <!-- 학생 로그인 폼 -->
+                    <div id="studentLogin" class="login-form">
+                        <div class="form-group">
+                            <label>이름</label>
+                            <input type="text" id="studentName" placeholder="성명을 입력하세요">
+                        </div>
+                        <div class="form-group">
+                            <label>생년월일</label>
+                            <input type="date" id="studentBirth">
+                        </div>
+                        <button id="studentLoginBtn" class="login-btn primary">
+                            <i data-lucide="user"></i>
+                            배정 결과 확인
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 배정 결과 페이지 -->
+        <div id="resultPage" class="page">
+            <div class="result-container">
+                <div class="result-card">
+                    <div class="result-header">
+                        <div class="success-icon">
+                            <i data-lucide="check-circle"></i>
+                        </div>
+                        <h1>🎉 배정 완료!</h1>
+                    </div>
+                    
+                    <div class="result-content">
+                        <div class="student-info">
+                            <h2 id="studentNameDisplay">-</h2>
+                            <p class="assignment-text">님이 배정된 세종학당은</p>
+                        </div>
+                        
+                        <div class="institute-info">
+                            <div class="institute-name">
+                                <i data-lucide="map-pin"></i>
+                                <span id="instituteNameDisplay">-</span>
+                            </div>
+                            <p class="field-info">
+                                <i data-lucide="book-open"></i>
+                                전문분야: <span id="fieldDisplay">-</span>
+                            </p>
+                        </div>
+                        
+                        <div class="congratulations">
+                            <h3>축하드립니다! 🎊</h3>
+                            <p>멋진 문화인턴 활동을 기대합니다.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="result-actions">
+                        <button id="backBtn" class="btn secondary">
+                            <i data-lucide="arrow-left"></i>
+                            뒤로 가기
+                        </button>
+                        <button id="printBtn" class="btn primary">
+                            <i data-lucide="printer"></i>
+                            인쇄하기
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 오류 페이지 -->
+        <div id="errorPage" class="page">
+            <div class="error-container">
+                <div class="error-card">
+                    <div class="error-icon">
+                        <i data-lucide="alert-circle"></i>
+                    </div>
+                    <h2>정보를 찾을 수 없습니다</h2>
+                    <p id="errorMessage">입력하신 정보와 일치하는 배정 내역이 없습니다.<br>이름과 생년월일을 다시 확인해주세요.</p>
+                    <button id="retryBtn" class="btn primary">
+                        <i data-lucide="refresh-cw"></i>
+                        다시 시도하기
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="loading-spinner">
+            <i data-lucide="loader"></i>
+            <p>정보를 확인하고 있습니다...</p>
+        </div>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="js/config.js"></script>
+    <script src="js/app.js"></script>
+    
+    <!-- Initialize Lucide icons -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+                console.log('Lucide icons initialized');
+            }
+        });
+    </script>
+</body>
+</html>
